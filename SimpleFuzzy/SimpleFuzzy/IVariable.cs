@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleFuzzy.Abstract
+namespace SimpleFuzzy
 {
-    public interface INameable
+    public interface IVariable
     {
-        string Name { get; }
+        int Count();
+        string Name();
+        List<(int, double)> Terms();
     }
 }

@@ -12,7 +12,7 @@ namespace SimpleFuzzy.AgeSets
             for(int i = 0; i < array.Length; i++) array[i] = (byte)i;
         }
 
-        public static string Name => "Целые числа от 0 до 100";
+        public string Name => "Целые числа от 0 до 100";
 
         public object Get() => array[index];
         

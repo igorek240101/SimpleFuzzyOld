@@ -16,8 +16,8 @@ namespace SimpleFuzzy
     {
         Dictionary<string, T> dictionary;
         public T now;
-        Action allLoaded;
-        public Module(string name = "", Action allLoaded = null)
+        Func<bool> allLoaded;
+        public Module(string name = "", Func<bool> allLoaded = null)
         {
             InitializeComponent();
             label1.Text = name;
@@ -53,11 +53,9 @@ namespace SimpleFuzzy
                 }
                 foreach (var type in types)
                 {
-                    string name = type.GetProperties().
-                        FirstOrDefault(t => t.Name == nameof(INameable.Name)).
-                        GetValue(null).ToString();
-                    dictionary.Add(name, type.GetConstructors()[0].Invoke(null) as T);
-                    comboBox1.Items.Add(name);
+                    T item = type.GetConstructors()[0].Invoke(null) as T;
+                    dictionary.Add(item.Name, item);
+                    comboBox1.Items.Add(item.Name);
                 }
                 comboBox1.SelectedIndex = 0;
                 now = dictionary[comboBox1.Items[comboBox1.SelectedIndex].ToString()];

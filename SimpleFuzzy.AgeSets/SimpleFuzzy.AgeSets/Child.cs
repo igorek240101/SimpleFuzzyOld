@@ -1,25 +1,22 @@
-﻿using System;
+﻿using SimpleFuzzy.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SimpleFuzzy.Abstract;
 
 namespace SimpleFuzzy.AgeSets
 {
-    internal class YoungMan : IHasFunc
+    internal class Child : IHasFunc
     {
-        public string Name => "Молодой человек";
+        public string Name => "Ребенок";
 
         public Type GetInputType => typeof(byte);
 
         public double GetResult(object input)
         {
             byte x = (byte)input;
-            if (x <= 14) return 0;
-            if (x <= 18) return (x - 14.0) / 4;
-            if (x <= 25) return 1;
-            if (x <= 35) return (10 - (x - 25.0)) / 10;
+            if (x < 18) return Math.Pow((18.0 - x) / 18, 1.0/2);
             else return 0;
         }
     }

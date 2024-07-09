@@ -91,7 +91,7 @@
             Controls.Add(textBox1);
             Controls.Add(label2);
             Name = "Module";
-            Size = new Size(578, 61);
+            Size = new Size(550, 61);
             ResumeLayout(false);
             PerformLayout();
         }

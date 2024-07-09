@@ -18,9 +18,25 @@ namespace SimpleFuzzy
 
 
         private void setsReToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+            => SetPanel("setsRelations", typeof(SetsRelations).GetConstructors()[0]);
 
-        }
+        private void ndimensionalSetsToolStripMenuItem_Click(object sender, EventArgs e)
+            => SetPanel("ndimensionalSets", typeof(NDimensionalSets).GetConstructors()[0]);
+
+        private void logicFazificationToolStripMenuItem_Click(object sender, EventArgs e)
+            => SetPanel("logicFazification", typeof(LogicFazification).GetConstructors()[0]);
+
+        private void logicOperationToolStripMenuItem_Click(object sender, EventArgs e)
+            => SetPanel("logicOperation", typeof(LogicOperation).GetConstructors()[0]);
+
+        private void lingvisticRulesToolStripMenuItem_Click(object sender, EventArgs e)
+            => SetPanel("lingvisticRules", typeof(LingvisticRules).GetConstructors()[0]);
+
+        private void logicResultsToolStripMenuItem_Click(object sender, EventArgs e)
+            => SetPanel("logicResults", typeof(LogicResults).GetConstructors()[0]);
+
+        private void controlsToolStripMenuItem_Click(object sender, EventArgs e)
+            => SetPanel("fuzzyControl", typeof(FuzzyControl).GetConstructors()[0]);
 
         private void SetPanel(string key, ConstructorInfo constructor)
         {
@@ -41,5 +57,7 @@ namespace SimpleFuzzy
             }
             nowPanel = newPanel;
         }
+
+
     }
 }
